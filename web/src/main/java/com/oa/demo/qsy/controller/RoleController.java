@@ -7,19 +7,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.oa.demo.qsy.pojo.SysOrg;
-import com.oa.demo.qsy.service.IOrgService;
+import com.oa.demo.qsy.pojo.SysRole;
+import com.oa.demo.qsy.service.IRoleService;
 
 @Controller
-@RequestMapping("/org")
-public class OrgController {
+@RequestMapping("/role")
+public class RoleController {
 	
 	@Autowired
-	private IOrgService orgServiceImpl;
+	private IRoleService roleServiceImpl;
 	
 	@ResponseBody
-	@RequestMapping("/queryOrgList")
-	public List<SysOrg> queryOrgList(){
-		return orgServiceImpl.queryOrgList();
+	@RequestMapping("/queryRoleList")
+	public List<SysRole> queryRoleList(){
+		return roleServiceImpl.queryRoleList();
 	}
 }
