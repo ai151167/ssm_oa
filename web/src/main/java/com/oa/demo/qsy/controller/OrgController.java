@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.demo.qsy.pojo.SysOrg;
 import com.oa.demo.qsy.service.IOrgService;
@@ -18,9 +19,11 @@ public class OrgController {
 	private IOrgService orgServiceImpl;
 	
 	@RequestMapping("/queryOrgList")
-	public String queryOrgList(Map<String, Object> map){
+	public ModelAndView queryOrgList(Map<String, Object> map){
+		ModelAndView model = new ModelAndView();
 		List<SysOrg> orgList = orgServiceImpl.queryOrgList();
 		map.put("list", orgList);
-		return "page/org/orgList";
+		model.setViewName("org/orgList");
+		return model;
 	}
 }

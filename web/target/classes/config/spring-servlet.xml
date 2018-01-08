@@ -45,7 +45,7 @@
 	<!-- 配置freemarker视图模版路径 -->
 	<bean id="freemarkerConfigurer"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-		<property name="templateLoaderPath" value="/" />
+		<property name="templateLoaderPath" value="/WEB-INF/page/" />
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="freemarkerSettings">
 			<props>
