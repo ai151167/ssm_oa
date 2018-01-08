@@ -1,6 +1,7 @@
 package com.oa.demo.qsy.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +19,15 @@ public class OrgServiceImpl implements IOrgService {
 	private SysOrgMapper sysOrgMapper;
 	
 	@Override
-	public List<SysOrg> queryOrgList() {
+	public Map<String, Object> queryOrgList(Map<String, Object> param) {
+	
+		return param;
+	}
+
+	@Override
+	public List<SysOrg> getOrgListByParentId(Long pid) {
 		SysOrgExample example = new SysOrgExample();
-		example.createCriteria().andStateNotEqualTo(Constant.ZERO);
+		example.createCriteria().andOrgParentIdEqualTo(pid).andStateNotEqualTo(Constant.ZERO);
 		return sysOrgMapper.selectByExample(example);
 	}
 
