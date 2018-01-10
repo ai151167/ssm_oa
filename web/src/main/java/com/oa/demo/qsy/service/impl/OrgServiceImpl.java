@@ -98,4 +98,14 @@ public class OrgServiceImpl implements IOrgService {
 		example.createCriteria().andOrgParentIdEqualTo(parentId).andStateEqualTo(Constant.ONE);
 		return sysOrgMapper.countByExample(example );
 	}
+
+	@Override
+	public Map<String, Object> deleteOrg(Long orgId) {
+		Map<String, Object> result = new HashMap<>();
+		SysOrg sysOrg = sysOrgMapper.selectByPrimaryKey(orgId);
+		sysOrg.setState(Constant.TWO);
+		sysOrgMapper.updateByPrimaryKeySelective(sysOrg);
+		result.put("isSuccess", true);
+		return result;
+	}
 }

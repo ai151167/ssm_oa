@@ -82,6 +82,30 @@ function OrgOper() {
 
 	}
 
+	this.deleteOrg=function(orgId){
+		var param = new Object();
+		param.orgId = orgId;
+		var desc="删除";
+		$.ajax({
+			url : "/org/deleteOrg",
+			async : true,
+			data : param,
+			type : "post",
+			success : function(data) {
+				if (data.isSuccess == true) {
+					var alerts = layer.alert(desc + "成功", 1, function() {
+						layer.close(alerts);
+						location.reload();
+					});
+				} else {
+					var alerts = layer.alert(desc + "失败", 5, function() {
+						layer.close(alerts);
+					});
+				}
+			}
+		});
+	}
+	
 	this.initHtml = function() {
 		var htmlStr = '';
 		htmlStr += '<div style="width:600px;" >';

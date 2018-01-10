@@ -80,4 +80,10 @@ public class OrgController extends BaseController {
 		return sysOrg;
 	}
 	
+	@ResponseBody
+	@RequestMapping("/deleteOrg")
+	public Map<String, Object> deleteOrg(SysOrg org){
+		return orgServiceImpl.deleteOrg(org.getOrgId());
+	}
+	
 }
