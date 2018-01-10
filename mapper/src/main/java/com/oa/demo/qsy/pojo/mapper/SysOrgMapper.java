@@ -1,8 +1,11 @@
 package com.oa.demo.qsy.pojo.mapper;
 
+import com.oa.demo.qsy.common.pojo.org.SysOrgSub;
 import com.oa.demo.qsy.pojo.SysOrg;
 import com.oa.demo.qsy.pojo.SysOrgExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface SysOrgMapper {
@@ -93,4 +96,11 @@ public interface SysOrgMapper {
      * @mbg.generated Thu Jan 04 14:14:29 CST 2018
      */
     int updateByPrimaryKey(SysOrg record);
+    
+    
+    List<SysOrgSub> queryOrgList(Map<String, Object> param);
+    
+    int getOrgCount();
+
+	SysOrgSub selectOrgInfo(Long orgId);
 }

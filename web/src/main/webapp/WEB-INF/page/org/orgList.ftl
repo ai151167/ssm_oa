@@ -28,9 +28,15 @@
 		<td>
 			<#if org.dispIndex??>${org.dispIndex}</#if>
 		</td>
-		<td><a href="javascript:void();" style="cursor: pointer;">编辑</a>
-			<a href="javascript:void();" style="cursor: pointer;">查看</a> 
-			<a href="javascript:void();" style="cursor: pointer;">删除</a>
+		<td>
+			<#if org.orgParentId??>
+				<#if org.orgParentId gt 0 >
+					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.updateOrg(<#if org.orgId??>${org.orgId}</#if>);">编辑</a>
+					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.showOrg(<#if org.orgId??>${org.orgId}</#if>);">查看</a> 
+					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.deleteOrg(<#if org.orgId??>${org.orgId}</#if>);">删除</a>
+				
+				</#if>	
+			</#if>	
 		</td>
 	</tr>
 	</#list>
@@ -39,5 +45,5 @@
 </#if>
 
 <script type="text/javascript">
-	/* 	totalCount = "<#if total??>${total}</#if>"; */
+	 	totalCount = "<#if total??>${total}</#if>"; 
 </script>

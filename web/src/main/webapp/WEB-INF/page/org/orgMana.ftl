@@ -10,6 +10,7 @@
 <script type="text/javascript" src="../../../js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="../../../js/static/page/org/orgMana.js"></script>
 <script type="text/javascript" src="../../../js/static/page/org/orgOper.js"></script>
+<script type="text/javascript" src="../../../js/static/page/org/orgTree.js"></script>
 
 
 <body style="background-color: #DCDCDC;">
@@ -23,7 +24,7 @@
 					    <td width="30%">
 					           父组织：<input type="text" id="qry_orgParentName" readonly="readonly">
 					           <input type="hidden" id="qry_orgParentId">
-					           <button  onclick="QueryOrgTreeLayer();">选择</button>
+					           <button  onclick="QueryOrgTreeLayer(1);">选择</button>
 					           </td>
 						<td width="30%">组织名称：<input type="text" id="qry_orgName"></td>
 						<td width="30%">状态：

@@ -17,4 +17,25 @@ public class CommonUtils {
 		}
 		return false;
 	}
+	
+	public static int stringToInt(String str) {
+		if (str!=null&&!"".equals(str)) {
+			return Integer.parseInt(str);
+		}
+		return 0;
+	}
+	
+	public static short stringToShort(String str) {
+		if(str!=null&&!"".equals(str)) {
+			return Short.parseShort(str);
+		}
+		return 0;
+	}
+	
+	public static Long stringToLong(String str) {
+		if(str!=null&&!"".equals(str)) {
+			return Long.parseLong(str);
+		}
+		return (long) 0;
+	}
 }

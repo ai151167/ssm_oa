@@ -15,6 +15,38 @@ function OrgOper() {
 		});
 
 	}
+	
+	this.updateOrg = function(orgId) {
+		this.queryOrg(orgId);
+		this.addOrg();
+	}
+	
+	this.queryOrg = function(orgId){
+		var param = new Object();
+		param.orgId = orgId;
+		$.ajax({
+			url : "/org/queryOrgInfo",
+			async : true,
+			data : param,
+			type : "post",
+			success : function(data) {
+				$("#orgId").val(data.orgId);
+				$("#state").val(data.state);
+				$("#orgName").val(data.orgName);
+				$("#orgDesc").val(data.orgDesc);
+			    $("#orgParentId").val(data.orgParentId);
+			    $("#orgParentName").val(data.orgParentName);
+				$("#dispIndex").val(data.dispIndex);
+			}
+		});
+	}
+	
+	this.showOrg = function(orgId){
+		this.queryOrg(orgId);
+		this.addOrg();
+		$("#saveButton").hide();
+	}
+	
 
 	this.saveOrg = function() {
 		var orgId = $("#orgId").val();
@@ -27,24 +59,15 @@ function OrgOper() {
 		param.orgParentId = $("#orgParentId").val();
 		param.dispIndex = $("#dispIndex").val();
 
-		var url = "/SSMProject/org/addOrg";
-		var desc = "新增";
-		if (orgId) {
-			url = "/SSMProject/org/updateOrg";
-			desc = "修改";
-		} else {
-			url = "/SSMProject/org/addOrg";
-			desc = "新增";
-		}
-
+		var url = "/org/save";
+		var desc = "保存";
 		$.ajax({
 			url : url,
 			async : true,
 			data : param,
 			type : "post",
-			success : function(response) {
-				var obj = jQuery.parseJSON(response);
-				if (obj.isSuccess == true) {
+			success : function(data) {
+				if (data.isSuccess == true) {
 					var alerts = layer.alert(desc + "成功", 1, function() {
 						layer.close(alerts);
 						location.reload();
@@ -76,7 +99,7 @@ function OrgOper() {
 		htmlStr += '<span>父组织:</span>';
 		htmlStr += '<input type="hidden"  id="orgParentId" style="width:120px;">';
 		htmlStr += '<input type="text"  id="orgParentName"  readonly="readonly" style="width:120px;">';
-		htmlStr += '<input type="button"  value="父组织" onclick="AddOrgTreeLayer();" style="width:60px;">';
+		htmlStr += '<input type="button"  value="父组织" onclick="QueryOrgTreeLayer(2);" style="width:60px;">';
 		htmlStr += '</td>';
 		htmlStr += '<td>';
 		htmlStr += '<span>组织名称:</span>';

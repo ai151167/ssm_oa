@@ -1,12 +1,19 @@
 package com.oa.demo.qsy.service.impl;
 
+
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.oa.demo.qsy.CommonUtils;
 import com.oa.demo.qsy.Constant;
+import com.oa.demo.qsy.MapAndObject;
+import com.oa.demo.qsy.common.pojo.org.SysOrgSub;
 import com.oa.demo.qsy.pojo.SysOrg;
 import com.oa.demo.qsy.pojo.SysOrgExample;
 import com.oa.demo.qsy.pojo.mapper.SysOrgMapper;
@@ -20,8 +27,18 @@ public class OrgServiceImpl implements IOrgService {
 	
 	@Override
 	public Map<String, Object> queryOrgList(Map<String, Object> param) {
-	
-		return param;
+		int startIndex = CommonUtils.stringToInt(param.get("startIndex").toString());
+		int pageSize = CommonUtils.stringToInt(param.get("pageSize").toString());
+		param.put("startIndex", startIndex);
+		param.put("pageSize", pageSize);
+		List<SysOrgSub> orgList = sysOrgMapper.queryOrgList(param);
+		SysOrgExample example = new SysOrgExample();
+		long count = sysOrgMapper.countByExample(example);
+		int orgCount =new Long(count).intValue();
+		Map<String, Object> resultMap = new HashMap<>();
+		resultMap.put("orgList", orgList);
+		resultMap.put("orgCount", orgCount);
+		return resultMap;
 	}
 
 	@Override
@@ -31,4 +48,54 @@ public class OrgServiceImpl implements IOrgService {
 		return sysOrgMapper.selectByExample(example);
 	}
 
+	@Override
+	public void addOrg(Map<String, Object> param) throws Exception {
+		Long orgParentId = CommonUtils.stringToLong(param.get("orgParentId").toString());
+		param.put("orgParentId", orgParentId);
+		param.put("dispIndex", CommonUtils.stringToShort(param.get("dispIndex").toString()));
+		param.put("state", CommonUtils.stringToShort(param.get("state").toString()));
+		SysOrg org = (SysOrg) MapAndObject.mapToObject(param, SysOrg.class);
+		org.setCreatedDate(new Date());
+		SysOrg parentInfo = sysOrgMapper.selectByPrimaryKey(orgParentId);
+		if(parentInfo.getIsParent()!=Constant.ONE) {
+			parentInfo.setIsParent(Constant.ONE);
+			sysOrgMapper.updateByPrimaryKey(parentInfo);
+		}
+		org.setIsParent(Constant.ZERO);
+		sysOrgMapper.insert(org);
+	}
+
+	@Override
+	public void updataOrg(Map<String, Object> param) throws Exception {
+		Long orgId = CommonUtils.stringToLong(param.get("orgId").toString());
+		Long orgParentId = CommonUtils.stringToLong(param.get("orgParentId").toString());
+		SysOrg oldOrgInfo = sysOrgMapper.selectByPrimaryKey(orgId);
+		param.put("orgId", orgId);
+		param.put("orgParentId", orgParentId);
+		param.put("dispIndex", CommonUtils.stringToShort(param.get("dispIndex").toString()));
+		param.put("state", CommonUtils.stringToShort(param.get("state").toString()));
+		SysOrg org = (SysOrg) MapAndObject.mapToObject(param, SysOrg.class);
+		sysOrgMapper.updateByPrimaryKeySelective(org);
+		SysOrg newOrgInfo = sysOrgMapper.selectByPrimaryKey(orgParentId);
+		if(CountByParentId(oldOrgInfo.getOrgParentId())<1) {
+			oldOrgInfo.setIsParent(Constant.ZERO);
+			sysOrgMapper.updateByPrimaryKeySelective(oldOrgInfo);
+		}
+		
+		if(CountByParentId(newOrgInfo.getOrgParentId())>0) {
+			newOrgInfo.setIsParent(Constant.ONE);
+			sysOrgMapper.updateByPrimaryKeySelective(newOrgInfo);
+		}
+	}
+
+	@Override
+	public SysOrgSub queryOrgInfo(Long orgId) {
+		return sysOrgMapper.selectOrgInfo(orgId);
+	}
+
+	protected long CountByParentId(long parentId) {
+		SysOrgExample example = new SysOrgExample();
+		example.createCriteria().andOrgParentIdEqualTo(parentId).andStateEqualTo(Constant.ONE);
+		return sysOrgMapper.countByExample(example );
+	}
 }
