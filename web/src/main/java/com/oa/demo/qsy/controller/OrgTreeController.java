@@ -34,16 +34,18 @@ public class OrgTreeController {
 		List<SysOrg> listByParentId = orgServiceImpl.getOrgListByParentId(CommonUtils.stringToLong(parentId));
 		List<Map<String, Object>> list = new ArrayList<>();
 		for (SysOrg sysOrg : listByParentId) {
-			Map<String, Object> resultMap = new HashMap<>();
-			resultMap.put("id", sysOrg.getOrgId());
-			resultMap.put("name", sysOrg.getOrgName());
-			if(sysOrg.getIsParent()==Constant.ONE&&sysOrg.getIsParent()!=null&&!"".equals(sysOrg.getIsParent())) {
-				resultMap.put("isParent",true);
-			}else {
-				resultMap.put("isParent",false);
+			if(sysOrg.getIsParent()!=null&&!"".equals(sysOrg.getIsParent())) {
+				Map<String, Object> resultMap = new HashMap<>();
+				resultMap.put("id", sysOrg.getOrgId());
+				resultMap.put("name", sysOrg.getOrgName());
+				if(sysOrg.getIsParent()==Constant.ONE) {
+					resultMap.put("isParent",true);
+				}else {
+					resultMap.put("isParent",false);
+				}
+				
+				list.add(resultMap);
 			}
-			
-			list.add(resultMap);
 		}
 		return list;
 	}

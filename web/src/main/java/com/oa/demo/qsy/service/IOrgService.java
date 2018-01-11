@@ -18,4 +18,6 @@ public interface IOrgService {
 
 	SysOrgSub queryOrgInfo(Long orgId);
 
+	Map<String, Object> deleteOrg(Long orgId);
+
 }

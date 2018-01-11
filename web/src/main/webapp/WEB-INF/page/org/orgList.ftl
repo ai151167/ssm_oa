@@ -32,11 +32,11 @@
 			<#if org.orgParentId??>
 				<#if org.orgParentId gt 0 >
 					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.updateOrg(<#if org.orgId??>${org.orgId}</#if>);">编辑</a>
+					</#if>	
+			</#if>	
 					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.showOrg(<#if org.orgId??>${org.orgId}</#if>);">查看</a> 
 					<a href="javascript:void();" style="cursor: pointer;" onclick="javascript:orgOper.deleteOrg(<#if org.orgId??>${org.orgId}</#if>);">删除</a>
 				
-				</#if>	
-			</#if>	
 		</td>
 	</tr>
 	</#list>
