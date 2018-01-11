@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 </head>
-<script type="text/javascript" src="../../../js/static/plugin/jquery/jquery-3.2.1.min.js"></script>
-<script type="text/javascript" src="../../../js/static/plugin/layer/layer.min.js"></script>
+<#assign base=request.contextPath />
+<base id="base" href="${base}">
+<script type="text/javascript" src="${base}/js/static/plugin/jquery/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/layer/layer.min.js"></script>
 <!--树  -->
-<link rel="stylesheet" href="../../../js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<script type="text/javascript" src="../../../js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
-<script type="text/javascript" src="../../../js/static/page/org/orgMana.js"></script>
-<script type="text/javascript" src="../../../js/static/page/org/orgOper.js"></script>
-<script type="text/javascript" src="../../../js/static/page/org/orgTree.js"></script>
+<link rel="stylesheet" href="${base}/js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css"/>
+<link rel="stylesheet" href="${base}/js/static/plugin/css/style.css" type="text/css"/>
+<link rel="stylesheet" href="${base}/js/static/plugin/css/page.css" type="text/css"/>
+<script type="text/javascript" src="${base}/js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/org/orgMana.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/org/orgOper.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/org/orgTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/paging/page.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/paging/pagination.min.js"></script>
 
 
 <body style="background-color: #DCDCDC;">
@@ -57,6 +63,9 @@
 		<tr height="50px">
 			<td><div id="pageNumberToolBar" height="40px" style="text-align:center;"></div></td>
 		</tr>
+		<!--<tr height="50px">
+			<td><ul class="page" maxshowpageitem="5" pagelistcount="10"  id="page"></ul></td>
+		</tr>-->
 	</table>
 
 </body>

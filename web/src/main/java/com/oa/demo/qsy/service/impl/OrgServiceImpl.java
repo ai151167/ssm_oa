@@ -32,12 +32,18 @@ public class OrgServiceImpl implements IOrgService {
 		param.put("startIndex", startIndex);
 		param.put("pageSize", pageSize);
 		List<SysOrgSub> orgList = sysOrgMapper.queryOrgList(param);
-		SysOrgExample example = new SysOrgExample();
-		long count = sysOrgMapper.countByExample(example);
+		long count = sysOrgMapper.countByOrgCondition(param);
 		int orgCount =new Long(count).intValue();
+		int totalPages = 1;
+		if(count>0) {
+			totalPages = orgCount%pageSize==0?orgCount/pageSize:orgCount/pageSize+1;
+		}else {
+			count=1;
+		}
 		Map<String, Object> resultMap = new HashMap<>();
 		resultMap.put("orgList", orgList);
 		resultMap.put("orgCount", orgCount);
+		resultMap.put("totalPages", totalPages);
 		return resultMap;
 	}
 
@@ -107,5 +113,23 @@ public class OrgServiceImpl implements IOrgService {
 		sysOrgMapper.updateByPrimaryKeySelective(sysOrg);
 		result.put("isSuccess", true);
 		return result;
+	}
+
+	@Override
+	public Map<String, Object> getCountAndPage(Map<String, Object> param) {
+		Map<String, Object> resultMap = new HashMap<>();
+		int pageSize = CommonUtils.stringToInt(param.get("pageSize").toString());
+		param.put("pageSize", pageSize);
+		long count = sysOrgMapper.countByOrgCondition(param);
+		int orgCount =new Long(count).intValue();
+		int totalPages = 1;
+		if(count>0) {
+			totalPages = orgCount%pageSize==0?orgCount/pageSize:orgCount/pageSize+1;
+		}else {
+			count=1;
+		}
+		resultMap.put("page", totalPages);
+		resultMap.put("count", orgCount);
+		return resultMap;
 	}
 }

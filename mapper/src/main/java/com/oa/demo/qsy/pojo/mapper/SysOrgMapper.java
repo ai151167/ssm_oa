@@ -103,4 +103,6 @@ public interface SysOrgMapper {
     int getOrgCount();
 
 	SysOrgSub selectOrgInfo(Long orgId);
+
+	long countByOrgCondition(Map<String, Object> param);
 }

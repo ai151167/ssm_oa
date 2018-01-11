@@ -20,4 +20,6 @@ public interface IOrgService {
 
 	Map<String, Object> deleteOrg(Long orgId);
 
+	Map<String, Object> getCountAndPage(Map<String, Object> param);
+
 }

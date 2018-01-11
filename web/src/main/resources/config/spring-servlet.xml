@@ -71,6 +71,7 @@
 		<property name="exposeRequestAttributes" value="true" />
 		<property name="exposeSpringMacroHelpers" value="true" />
 		<property name="allowSessionOverride" value="true" />
+		 <property name="requestContextAttribute" value="request" />
 		<property name="order" value="1" />
 	</bean>
 
