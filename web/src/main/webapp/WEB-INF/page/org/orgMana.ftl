@@ -9,14 +9,11 @@
 <script type="text/javascript" src="${base}/js/static/plugin/layer/layer.min.js"></script>
 <!--树  -->
 <link rel="stylesheet" href="${base}/js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css"/>
-<link rel="stylesheet" href="${base}/js/static/plugin/css/style.css" type="text/css"/>
-<link rel="stylesheet" href="${base}/js/static/plugin/css/page.css" type="text/css"/>
 <script type="text/javascript" src="${base}/js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/org/orgMana.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/org/orgOper.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/org/orgTree.js"></script>
-<script type="text/javascript" src="${base}/js/static/plugin/paging/page.js"></script>
-<script type="text/javascript" src="${base}/js/static/plugin/paging/pagination.min.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/paging/paging.js"></script>
 
 
 <body style="background-color: #DCDCDC;">

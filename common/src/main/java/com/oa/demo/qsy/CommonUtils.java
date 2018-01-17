@@ -38,4 +38,11 @@ public class CommonUtils {
 		}
 		return (long) 0;
 	}
+	
+	public static int longToInt(Long l) {
+		if (l!=null&&!"".equals(l.toString())) {
+			return Integer.parseInt(l.toString());
+		}
+		return 0;
+	}
 }

@@ -46,3 +46,7 @@
 </#if>
 </table>
 </#if>
+<script type="text/javascript">
+	count = "<#if count??>${count}</#if>"; 
+	page = "<#if page??>${page}</#if>"; 
+</script>

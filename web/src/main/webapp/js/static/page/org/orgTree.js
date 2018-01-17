@@ -19,6 +19,7 @@ function QueryOrgTreeLayer(state){
 }
 
 function LoadOrgTree(){
+	var url = "/orgTree/getOrgTreeList";
 	var setting={
 		data:{
 			simpleData:{
@@ -26,7 +27,7 @@ function LoadOrgTree(){
 			}
 		},
 		async:{
-			url:"/orgTree/getOrgTreeList",
+			url:url,
 			type:"get",
 			dataType:"json",
 			autoParam:["id","name"],
@@ -55,7 +56,10 @@ function SetQueryOrgTreeParam(state){
 		$("#orgParentId").val($("#tmp_orgId").val());
 		$("#orgParentName").val($("#tmp_orgName").val());
 	}
-	
+	if(state=='3'){
+		$("#qry_orgId").val($("#tmp_orgId").val());
+		$("#qry_orgName").val($("#tmp_orgName").val());
+	}
 	var index = layer.index;
 	 layer.close(index);
 }

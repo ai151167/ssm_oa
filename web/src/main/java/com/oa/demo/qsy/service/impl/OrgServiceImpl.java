@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -115,21 +114,4 @@ public class OrgServiceImpl implements IOrgService {
 		return result;
 	}
 
-	@Override
-	public Map<String, Object> getCountAndPage(Map<String, Object> param) {
-		Map<String, Object> resultMap = new HashMap<>();
-		int pageSize = CommonUtils.stringToInt(param.get("pageSize").toString());
-		param.put("pageSize", pageSize);
-		long count = sysOrgMapper.countByOrgCondition(param);
-		int orgCount =new Long(count).intValue();
-		int totalPages = 1;
-		if(count>0) {
-			totalPages = orgCount%pageSize==0?orgCount/pageSize:orgCount/pageSize+1;
-		}else {
-			count=1;
-		}
-		resultMap.put("page", totalPages);
-		resultMap.put("count", orgCount);
-		return resultMap;
-	}
 }

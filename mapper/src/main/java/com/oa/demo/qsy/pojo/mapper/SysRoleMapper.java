@@ -3,6 +3,8 @@ package com.oa.demo.qsy.pojo.mapper;
 import com.oa.demo.qsy.pojo.SysRole;
 import com.oa.demo.qsy.pojo.SysRoleExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface SysRoleMapper {
@@ -93,4 +95,8 @@ public interface SysRoleMapper {
      * @mbg.generated Fri Jan 05 11:35:20 CST 2018
      */
     int updateByPrimaryKey(SysRole record);
+    
+    List<SysRole> selectRoleListByCondition(Map<String, Object> param);
+
+	long roleCount(Map<String, Object> param);
 }

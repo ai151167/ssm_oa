@@ -38,7 +38,7 @@ public class OrgController extends BaseController {
 		ModelAndView model = new ModelAndView();
 		Map<String, Object> orgMap= orgServiceImpl.queryOrgList(param);
 		model.addObject("list",orgMap.get("orgList"));
-		model.addObject("total", orgMap.get("orgCount"));
+		model.addObject("count", orgMap.get("orgCount"));
 		model.addObject("page", orgMap.get("totalPages"));
 		model.setViewName("org/orgList");
 		return model;
@@ -85,13 +85,6 @@ public class OrgController extends BaseController {
 	@RequestMapping("/deleteOrg")
 	public Map<String, Object> deleteOrg(SysOrg org){
 		return orgServiceImpl.deleteOrg(org.getOrgId());
-	}
-	
-	@ResponseBody
-	@RequestMapping("/getCountAndPage")
-	public Map<String, Object> getCountAndPage(HttpServletRequest request){
-		Map<String, Object> param = this.getParam(request);
-		return orgServiceImpl.getCountAndPage(param);
 	}
 	
 }

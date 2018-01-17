@@ -1,6 +1,5 @@
 package com.oa.demo.qsy.pojo;
 
-import java.beans.Transient;
 import java.util.Date;
 
 public class SysOrg {
