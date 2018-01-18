@@ -35,5 +35,6 @@
 </#if>
 
 <script type="text/javascript">
-	totalCount = ${total};
+	count = ${count};
+	page = ${page}
 </script>

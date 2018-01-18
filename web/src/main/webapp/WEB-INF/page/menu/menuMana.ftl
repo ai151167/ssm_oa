@@ -2,21 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<#assign base=request.contextPath />
+<base id="base" href="${base}">
 <!-- jQuery框架 -->
-<script type="text/javascript"  src="/SSMProject/static/plugin/jquery/jquery-1.9.1.js"></script>
+<script type="text/javascript"  src="${base}/js/static/plugin/jquery/jquery-3.2.1.min.js"></script>
 <!-- 弹出框插件 -->
-<script type="text/javascript" src="/SSMProject/static/plugin/layer/layer.min.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/layer/layer.min.js"></script>
 <!--树  -->
-<link rel="stylesheet" href="/SSMProject/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<script type="text/javascript" src="/SSMProject/static/plugin/zTree/js/jquery.ztree.core.js"></script>
+<link rel="stylesheet" href="${base}/js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="${base}/js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
  
 <!-- 区域级联 --> 
-<script type="text/javascript" src="/SSMProject/static/utils/getArea.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/utils/getArea.js"></script>
 
-<script type="text/javascript" src="/SSMProject/static/application/admin/menu/menuOper.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/menu/menuMana.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/menu/menuTree.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/menu/menuAddTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/paging/paging.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/menu/menuOper.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/menu/menuMana.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/menu/menuTree.js"></script>
+
 
 </head>
 

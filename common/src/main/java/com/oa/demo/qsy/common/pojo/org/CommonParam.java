@@ -39,6 +39,13 @@ public class CommonParam {
 	private Long pageSize;
 	
 	private Short userSex;
+	
+	private Long menuParentId;
+	
+	private String menuName;
+	
+	private Short isPublish;
+	
 
 	public Long getOrgId() {
 		return orgId;
@@ -190,5 +197,29 @@ public class CommonParam {
 
 	public void setUserChName(String userChName) {
 		this.userChName = userChName;
+	}
+
+	public Long getMenuParentId() {
+		return menuParentId;
+	}
+
+	public void setMenuParentId(Long menuParentId) {
+		this.menuParentId = menuParentId;
+	}
+
+	public String getMenuName() {
+		return menuName;
+	}
+
+	public void setMenuName(String menuName) {
+		this.menuName = menuName;
+	}
+
+	public Short getIsPublish() {
+		return isPublish;
+	}
+
+	public void setIsPublish(Short isPublish) {
+		this.isPublish = isPublish;
 	}
 }

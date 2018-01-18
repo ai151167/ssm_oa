@@ -348,4 +348,37 @@
       CREATED_DATE = #{createdDate,jdbcType=TIMESTAMP}
     where MENU_ID = #{menuId,jdbcType=BIGINT}
   </update>
+  
+  	<select id="selectByCondition" parameterType="com.oa.demo.qsy.common.pojo.org.CommonParam" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from sys_menu M
+		where 1=1
+		<if test="menuName != null and menuName != ''">
+			AND M.MENU_NAME like CONCAT(CONCAT('%',#{menuName,jdbcType=VARCHAR},'%'))
+		</if>
+		<if test="isPublish != null and isPublish != ''">
+			AND M.IS_PUBLISH = #{isPublish,jdbcType=SMALLINT}
+		</if>
+		<if test="menuParentId != null and menuParentId != ''">
+			AND M.MENU_PARENT_ID = #{menuParentId,jdbcType=BIGINT}
+		</if>
+		limit #{startIndex,jdbcType=BIGINT},#{pageSize,jdbcType=BIGINT}
+	</select>
+	
+	<select id="countByCondition" parameterType="com.oa.demo.qsy.common.pojo.org.CommonParam" resultType="java.lang.Long">
+		select
+		count(*)
+		from sys_menu M
+		where 1=1
+		<if test="menuName != null and menuName != ''">
+			AND M.MENU_NAME like CONCAT(CONCAT('%',#{menuName,jdbcType=VARCHAR},'%'))
+		</if>
+		<if test="isPublish != null and isPublish != ''">
+			AND M.IS_PUBLISH = #{isPublish,jdbcType=SMALLINT}
+		</if>
+		<if test="menuParentId != null and menuParentId != ''">
+			AND M.MENU_PARENT_ID = #{menuParentId,jdbcType=BIGINT}
+		</if>
+	</select>
 </mapper>

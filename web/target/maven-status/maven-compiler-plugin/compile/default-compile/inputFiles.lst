@@ -7,8 +7,12 @@ F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IAreaServer.
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\RoleServiceImpl.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IOrgService.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IUserService.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\AuthorizationController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\UserServiceImpl.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IRoleService.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\RoleController.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IMenuService.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\MenuServiceImpl.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\MenuController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\AreaController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\AreaServerImpl.java
