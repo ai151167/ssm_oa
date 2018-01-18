@@ -23,9 +23,6 @@ public class AreaController {
 	@RequestMapping("/getBaseArea")
 	public List<BaseArea> getBaseArea(HttpServletRequest request){
 		String areaParentId = request.getParameter("areaParentId");
-		if(areaParentId==null||"".equals(areaParentId)) {
-			areaParentId = "CHN";
-		}
 		return areaServerImpl.getBaseArea(areaParentId);
 	}
 }

@@ -18,18 +18,6 @@ $(function(){
 		$("#qry_countryId").val("");
 		loadUserPage(1);
 	});
-	$("#qry_provinceId").click(function(){
-		var areaParentId = "CHN";
-		loadProvinceInfo(areaParentId,'1');
-	});
-	$("#qry_cityId").click(function(){
-		var areaParentId = $("#qry_provinceId").val();
-		loadProvinceInfo(areaParentId,'2');
-	});
-	$("#qry_countryId").click(function(){
-		var areaParentId = $("#qry_cityId").val();
-		loadProvinceInfo(areaParentId,'3');
-	});
 });
 
 function loadUserPage(startPage){
@@ -55,6 +43,8 @@ function loadUserPage(startPage){
 			}
 		}
 	});
+	//加载省市县的数据
+	CascadeArea(null, null, null,"qry_provinceId", "qry_cityId", "qry_countryId");
 }
 
 function loadPageInfo(startPage){
@@ -69,29 +59,3 @@ function loadPageInfo(startPage){
 	});
 }
 
-function loadProvinceInfo(areaParentId,state){
-	var param = new Object();
-	param.areaParentId=areaParentId;
-	$.ajax({
-		url : "/area/getBaseArea",
-		async : true,
-		type : "POST",
-		data: param,
-		success:function(data){
-			if(data!=null){
-				var sb = "";
-				$.each(data,function(i,area){
-					sb +="<option value='"+area.areaId+"'>"+area.areaName+"</option>";
-				})
-				if(state=='1'){
-					$("#qry_provinceId").html(sb);
-				}else if(state=='2'){
-					$("#qry_cityId").html(sb);
-				}else if(state=='3'){
-					$("#qry_countryId").html(sb);
-				}
-				
-			}
-		}
-	});
-}

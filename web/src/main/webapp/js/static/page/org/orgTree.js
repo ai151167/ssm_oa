@@ -60,6 +60,10 @@ function SetQueryOrgTreeParam(state){
 		$("#qry_orgId").val($("#tmp_orgId").val());
 		$("#qry_orgName").val($("#tmp_orgName").val());
 	}
+	if(state=='4'){
+		$("#orgId").val($("#tmp_orgId").val());
+		$("#orgName").val($("#tmp_orgName").val());
+	}
 	var index = layer.index;
 	 layer.close(index);
 }

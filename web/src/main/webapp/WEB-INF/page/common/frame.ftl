@@ -1,15 +1,16 @@
 
 <html>
-
+<#assign base=request.contextPath />
+<base id="base" href="${base}">
 <frameset rows="50,*,50">
 
-	<frame src="/SSMProject/application/admin/common/top.html" scrolling="no">
+	<frame src="${base}/js/static/common/top.html" scrolling="no">
 
 	<frameset cols="180,*">
-		<frame src="/SSMProject/menu/getAuthoMenuList" scrolling="no">
-		<frame   name="mainFrame" src="/SSMProject/application/admin/common/center.html"  scrolling="yes">
+		<frame src="/menu/getAuthoMenuList" scrolling="no">
+		<frame   name="mainFrame" src="${base}/js/static/common/center.html"  scrolling="yes">
 	</frameset>
-	<frame src="/SSMProject/application/admin/common/bottom.html" scrolling="no">
+	<frame src="${base}/js/static/common/bottom.html" scrolling="no">
 	
 </frameset>
 

@@ -8,14 +8,14 @@
 	<table width="100%" border="1" cellpadding="0" cellspacing="0">
 		<tr height="30px" style="background-color:#aaa">
 			<td>
-		     <MARQUEE scrollAmount=8 direction=left><span style="color:red;">欢迎来到千锋首页</span></MARQUEE>
+		     <MARQUEE scrollAmount=8 direction=left><span style="color:red;">欢迎来到首页</span></MARQUEE>
 			</td>
 			<td style="text-align: right;">
 			<#if user??>
 			      员工：<#if user.userChName??>${user.userChName}</#if>
 			</#if>
 			&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="/SSMProject/frame">后台管理</a>
+			<a href="/web/frame">后台管理</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			</td>
 			

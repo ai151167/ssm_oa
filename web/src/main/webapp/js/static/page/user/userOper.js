@@ -113,8 +113,7 @@ function UserOper() {
 					"checked", true);
 
 			var birthday_temp = data.userBirthday;
-			var birthday = Date.parse(birthday_temp);
-			var date = new Date(birthday);
+			var date = new Date(birthday_temp);
 
 			var year = date.getFullYear();
 			var month = date.getMonth() + 1;
@@ -179,9 +178,7 @@ function UserOper() {
 					"checked", true);
 
 			var birthday_temp = data.userBirthday;
-			var birthday = Date.parse(birthday_temp);
-			var date = new Date(birthday);
-
+			var date = new Date(birthday_temp);
 			var year = date.getFullYear();
 			var month = date.getMonth() + 1;
 			var day = date.getDate();
@@ -195,7 +192,6 @@ function UserOper() {
 			if (day < 10) {
 				day = "0" + day;
 			}
-
 			$("#year").val(year);
 			$("#month").val(month);
 			$("#day").val(day);
@@ -257,7 +253,7 @@ function UserOper() {
 		htmlStr += '所属组织：';
 		htmlStr += '<input type="text" id="orgName"  style="width:110px;" readonly="readonly" >';
 		htmlStr += '<input type="hidden" id="orgId">';
-		htmlStr += '<button onclick="QueryOrgTreeLayer(3);">选择</button>';
+		htmlStr += '<button onclick="QueryOrgTreeLayer(\'4\');">选择</button>';
 		htmlStr += '</td>';
 		htmlStr += '<td>';
 		htmlStr += '<span>姓名:</span>';
@@ -362,5 +358,4 @@ function InitDate() {
 		}
 		dayOption.append("<option value='" + d + "'>" + d + "</option>");
 	}
-
 }
