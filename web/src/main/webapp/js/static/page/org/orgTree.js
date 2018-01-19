@@ -10,7 +10,7 @@ function QueryOrgTreeLayer(state){
 	$.layer({
 		type:1,
 		title:false,
-		area: ['auto', 'auto'],
+		area: ['auto', '300px'],
 		page:{
 			html:htmlStr
 		}

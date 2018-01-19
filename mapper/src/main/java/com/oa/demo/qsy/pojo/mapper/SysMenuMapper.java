@@ -1,6 +1,7 @@
 package com.oa.demo.qsy.pojo.mapper;
 
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
+import com.oa.demo.qsy.common.pojo.org.SysMenuSub;
 import com.oa.demo.qsy.pojo.SysMenu;
 import com.oa.demo.qsy.pojo.SysMenuExample;
 import java.util.List;
@@ -98,4 +99,6 @@ public interface SysMenuMapper {
 	List<SysMenu> selectByCondition(CommonParam param);
 
 	Long countByCondition(CommonParam param);
+
+	SysMenuSub selectMenuInfoById(Long menuId);
 }

@@ -18,4 +18,6 @@ public interface IUserService {
 
 	String delete(Long stringToLong);
 
+	Map<String, Object> loginCheck(SysUser user);
+
 }

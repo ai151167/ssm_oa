@@ -20,7 +20,7 @@
 </head>
 
 
-<body style="background-color: #DCDCDC;">
+<body style="background-color: #F8F8FF;">
 
 	<table border="1" width="100%" >
 		<tr height="100px">
@@ -56,7 +56,7 @@
 			<td ><div id="pageListContainer" ></div></td>
 		</tr>
 		<tr height="50px">
-			<td><div id="pageNumberToolBar" height="40px" style="text-align:center;"></div></td>
+			<td><div id="pageNumberToolBar" height="40px" style="text-align:center; color:blue"></div></td>
 		</tr>
 	</table>
 

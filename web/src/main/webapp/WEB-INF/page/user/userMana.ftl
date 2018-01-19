@@ -68,7 +68,7 @@
 			<td ><div id="pageListContainer" ></div></td>
 		</tr>
 		<tr height="50px" class="pageItem pageItemActive">
-			<td><div id="pageNumberToolBar" height="40px" style="text-align:center;" class="pageItem pageItemActive"></div></td>
+			<td><div id="pageNumberToolBar" height="40px" style="text-align:center; color:blue" ></div></td>
 		</tr>
 	</table>
 

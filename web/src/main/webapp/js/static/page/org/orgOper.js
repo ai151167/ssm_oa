@@ -123,7 +123,7 @@ function OrgOper() {
 		htmlStr += '<span>父组织:</span>';
 		htmlStr += '<input type="hidden"  id="orgParentId" style="width:120px;">';
 		htmlStr += '<input type="text"  id="orgParentName"  readonly="readonly" style="width:120px;">';
-		htmlStr += '<input type="button"  value="父组织" onclick="QueryOrgTreeLayer(2);" style="width:60px;">';
+		htmlStr += '<input type="button"  value="父组织" onclick="QueryOrgTreeLayer(\'2\');" style="width:60px;">';
 		htmlStr += '</td>';
 		htmlStr += '<td>';
 		htmlStr += '<span>组织名称:</span>';

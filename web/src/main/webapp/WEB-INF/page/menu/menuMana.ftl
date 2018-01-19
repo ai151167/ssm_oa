@@ -16,14 +16,14 @@
 <script type="text/javascript" src="${base}/js/static/page/utils/getArea.js"></script>
 
 <script type="text/javascript" src="${base}/js/static/plugin/paging/paging.js"></script>
-<script type="text/javascript" src="${base}/js/static/page/menu/menuOper.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/menu/menuMana.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/menu/menuOper.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/menu/menuTree.js"></script>
 
 
 </head>
 
-<body style="background-color: #DCDCDC;">
+<body style="background-color: #F8F8FF;">
 
 	<table border="1" width="100%" >
 		<tr height="100px">
@@ -35,7 +35,7 @@
 				            所属目录：
 						  <input type="text"  readonly="readonly" id="qry_menuParentName" >
 						  <input type="hidden"   id="qry_menuParentId" >
-						  <input type="button"   id="qry_menuTreeId"  onclick="QueryMenuTreeLayer();" value="选择">
+						  <input type="button"   id="qry_menuTreeId"  onclick="QueryMenuTreeLayer('1');" value="选择">
 				    </td>
 				
 					<td width="30%">菜单名称：<input type="text" id="qry_menuName"></td>
@@ -68,7 +68,7 @@
 			<td ><div id="pageListContainer" ></div></td>
 		</tr>
 		<tr height="50px">
-			<td><div id="pageNumberToolBar" height="40px" style="text-align:center;"></div></td>
+			<td><div id="pageNumberToolBar" height="40px" style="text-align:center; color:blue"></div></td>
 		</tr>
 	</table>
 

@@ -2,6 +2,9 @@ F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\OrgContro
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\RoleTreeController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\OrgServiceImpl.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\OrgTreeController.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\CommonController.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\LoginController.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\MenuTreeController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\UserController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IAreaServer.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\RoleServiceImpl.java

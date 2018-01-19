@@ -3,19 +3,21 @@
 <head>
 <meta charset="UTF-8">
 </head>
-
+<#assign base=request.contextPath />
+<base id="base" href="${base}">
 <!-- jQuery框架 -->
-<script type="text/javascript"  src="/SSMProject/static/plugin/jquery/jquery-1.9.1.js"></script>
+<script type="text/javascript"  src="${base}/js/static/plugin/jquery/jquery-3.2.1.min.js"></script>
 <!-- 弹出框插件 -->
-<script type="text/javascript" src="/SSMProject/static/plugin/layer/layer.min.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/layer/layer.min.js"></script>
 <!--树  -->
-<link rel="stylesheet" href="/SSMProject/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<script type="text/javascript" src="/SSMProject/static/plugin/zTree/js/jquery.ztree.core.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/authorization/authorizationMana.js"></script>
+<link rel="stylesheet" href="${base}/js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="${base}/js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/authorizationMana.js"></script>
 <script type="text/javascript" src="/SSMProject/static/application/admin/authorization/authorizationOrg.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/authorization/menuTree.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/authorization/orgTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/menu/menuTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/org/orgTree.js"></script>
 <script type="text/javascript" src="/SSMProject/static/application/admin/authorization/userTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/plugin/paging/paging.js"></script>
 
 
 <body style="background-color: #DCDCDC;">

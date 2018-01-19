@@ -12,6 +12,8 @@ import com.oa.demo.qsy.Constant;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysUserSub;
 import com.oa.demo.qsy.pojo.SysUser;
+import com.oa.demo.qsy.pojo.SysUserExample;
+import com.oa.demo.qsy.pojo.SysUserExample.Criteria;
 import com.oa.demo.qsy.pojo.mapper.SysUserMapper;
 import com.oa.demo.qsy.service.IUserService;
 
@@ -72,5 +74,27 @@ public class UserServiceImpl implements IUserService {
 			return Constant.SUCCESS;
 		}
 		return Constant.FAILED;
+	}
+
+	@Override
+	public Map<String, Object> loginCheck(SysUser user) {
+		SysUserExample example = new SysUserExample();
+		Map<String, Object> result = new HashMap<>();
+		example.createCriteria().andUserNameEqualTo(user.getUserName());
+		List<SysUser> list = sysUserMapper.selectByExample(example );
+		if(list==null||list.size()==0) {
+			result.put("data", "该账户不存在！");
+		}else if(list!=null&&list.size()>0) {
+			if(!"01".equals(list.get(0).getState())) {
+				result.put("data", "该账户状态不正常！");
+			}else if(!list.get(0).getUserPassword().equals(user.getUserPassword())) {
+				result.put("data", "该账户密码不正确！");
+			}else {
+				result.put("user", list.get(0));
+				result.put("data", "登录成功！");
+			}
+		}
+		return result;
+		
 	}
 }

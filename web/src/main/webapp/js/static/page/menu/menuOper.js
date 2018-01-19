@@ -37,14 +37,14 @@ function MenuOper() {
 			param.isParent = 2;
 		}
 
-		var url = "/SSMProject/menu/add"
+		var url = "/menu/add"
 		var desc = "新增";
 		// 如果 menuId存在，则为编辑
 		if (menuId) {
-			var url = "/SSMProject/menu/update"
+			var url = "/menu/update"
 			var desc = "编辑";
 		} else {
-			var url = "/SSMProject/menu/add"
+			var url = "/menu/add"
 			var desc = "新增";
 		}
 
@@ -53,8 +53,7 @@ function MenuOper() {
 			type : 'post',// 提交的方式
 			data : param,
 			success : function(msg) {
-				var obj = jQuery.parseJSON(msg);
-				if (true == obj.isSucess) {
+				if (true == msg) {
 					var alerts = layer.alert(desc + "菜单成功", 1, function() {
 						layer.close(alerts);
 						location.reload();// 刷新页面
@@ -81,16 +80,16 @@ function MenuOper() {
 		});
 		var param = new Object();
 		param.menuId = menuId;
-		$.getJSON("/SSMProject/menu/queryMenu", param, function(data) {
-			$("#menuId").val(data.menu.menuId);
-			$("#menuName").val(data.menu.menuName);
-			$("#isPublish").val(data.menu.isPublish);
-			$("#descContent").val(data.menu.descContent);
-			$("#menuParentId").val(data.menu.menuParentId);
-			$("#menuParentName").val(data.menu.menuParentName);
-			$("#menuPath").val(data.menu.menuPath);
-			$("#isPublish").val(data.menu.isPublish);
-			$("#menuType").val(data.menu.menuType);
+		$.getJSON("/menu/queryMenu", param, function(data) {
+			$("#menuId").val(data.menuId);
+			$("#menuName").val(data.menuName);
+			$("#isPublish").val(data.isPublish);
+			$("#descContent").val(data.descContent);
+			$("#menuParentId").val(data.menuParentId);
+			$("#menuParentName").val(data.menuParentName);
+			$("#menuPath").val(data.menuPath);
+			$("#isPublish").val(data.isPublish);
+			$("#menuType").val(data.menuType);
 
 		});
 	}
@@ -107,16 +106,16 @@ function MenuOper() {
 		});
 		var param = new Object();
 		param.menuId = menuId;
-		$.getJSON("/SSMProject/menu/queryMenu", param, function(data) {
-			$("#menuId").val(data.menu.menuId);
-			$("#menuName").val(data.menu.menuName);
-			$("#isPublish").val(data.menu.isPublish);
-			$("#descContent").val(data.menu.descContent);
-			$("#menuParentId").val(data.menu.menuParentId);
-			$("#menuParentName").val(data.menu.menuParentName);
-			$("#menuPath").val(data.menu.menuPath);
-			$("#isPublish").val(data.menu.isPublish);
-			$("#menuType").val(data.menu.menuType);
+		$.getJSON("/menu/queryMenu", param, function(data) {
+			$("#menuId").val(data.menuId);
+			$("#menuName").val(data.menuName);
+			$("#isPublish").val(data.isPublish);
+			$("#descContent").val(data.descContent);
+			$("#menuParentId").val(data.menuParentId);
+			$("#menuParentName").val(data.menuParentName);
+			$("#menuPath").val(data.menuPath);
+			$("#isPublish").val(data.isPublish);
+			$("#menuType").val(data.menuType);
 
 			$("#saveButton").hide();
 
@@ -127,14 +126,11 @@ function MenuOper() {
 		var param = new Object();
 		param.menuId = menuId;
 		$.ajax({
-			url : "/SSMProject/menu/delete",
+			url : "/menu/delete",
 			type : 'POST',// 提交的方式
 			data : param,
 			success : function(msg) {
-
-				var obj = jQuery.parseJSON(msg);
-
-				if (true == obj.isSucess) {
+				if (msg) {
 					var alerts = layer.alert("删除菜单成功", 1, function() {
 						layer.close(alerts);
 						location.reload();// 刷新页面
@@ -168,7 +164,7 @@ function MenuOper() {
 		htmlStr += '<span>所属目录：</span>';
 		htmlStr += '<input type="text"  readonly="readonly" id="menuParentName" >';
 		htmlStr += '<input type="hidden"   id="menuParentId" >';
-		htmlStr += '<input type="button"   id="menuTreeId"  onclick="AddMenuTreeLayer();" value="选择">';
+		htmlStr += '<input type="button"   id="menuTreeId"  onclick="QueryMenuTreeLayer(\'2\');" value="选择">';
 		htmlStr += '</td>';
 		htmlStr += '<td>';
 		htmlStr += '<span>菜单类型:</span>';
@@ -209,7 +205,7 @@ function MenuOper() {
 		htmlStr += '</td>';
 		htmlStr += '</tr>';
 		htmlStr += '<tr id="saveMenuTr"><td colspan="2" align="center">';
-		htmlStr += '<input id="saveButton"  type="button"  onclick="javascript:menuOper.addMenu(\'add\');" value="保存"  />';
+		htmlStr += '<input id="saveButton"  type="button"  onclick="javascript:menuOper.addMenu();" value="保存"  />';
 		htmlStr += '</td></tr>';
 		htmlStr += '</table>';
 		htmlStr += '</div>';
