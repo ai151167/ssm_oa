@@ -12,10 +12,14 @@ import org.springframework.stereotype.Service;
 import com.oa.demo.qsy.CommonUtils;
 import com.oa.demo.qsy.Constant;
 import com.oa.demo.qsy.MapAndObject;
+import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysOrgSub;
 import com.oa.demo.qsy.pojo.SysOrg;
 import com.oa.demo.qsy.pojo.SysOrgExample;
+import com.oa.demo.qsy.pojo.SysRoleOrgRel;
+import com.oa.demo.qsy.pojo.SysRoleOrgRelExample;
 import com.oa.demo.qsy.pojo.mapper.SysOrgMapper;
+import com.oa.demo.qsy.pojo.mapper.SysRoleOrgRelMapper;
 import com.oa.demo.qsy.service.IOrgService;
 
 @Service
@@ -23,6 +27,9 @@ public class OrgServiceImpl implements IOrgService {
 
 	@Autowired
 	private SysOrgMapper sysOrgMapper;
+	
+	@Autowired
+	private SysRoleOrgRelMapper sysRoleOrgRelMapper;
 	
 	@Override
 	public Map<String, Object> queryOrgList(Map<String, Object> param) {
@@ -112,6 +119,31 @@ public class OrgServiceImpl implements IOrgService {
 		sysOrgMapper.updateByPrimaryKeySelective(sysOrg);
 		result.put("isSuccess", true);
 		return result;
+	}
+
+	@Override
+	public Map<String, Object> delRoleOrgRel(CommonParam param) {
+		Map<String, Object> result = new HashMap<>();
+		result.put("isOk", false);
+		SysRoleOrgRelExample example = new SysRoleOrgRelExample();
+		example.createCriteria().andOrgIdEqualTo(param.getOrgId()).andRoleIdEqualTo(param.getRoleId());
+		 int i = sysRoleOrgRelMapper.deleteByExample(example);
+		 if(i>0) {
+			 result.put("isOk", true); 
+		 }
+		return result;
+		 
+	}
+
+	@Override
+	public boolean addRoleOrgRel(SysRoleOrgRel param) {
+		boolean isOK = false;
+		param.setCreatedDate(new Date());
+		int i = sysRoleOrgRelMapper.insert(param);
+		if(i>0) {
+			isOK = true;
+		}
+		return isOK;
 	}
 
 }

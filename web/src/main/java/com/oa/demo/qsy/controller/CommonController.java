@@ -10,6 +10,5 @@ public class CommonController {
 	@RequestMapping("/frame")
 	public String frame() {
 		return "common/frame";
-
 	}
 }

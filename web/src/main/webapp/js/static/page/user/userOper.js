@@ -32,9 +32,8 @@ function UserOper() {
 		var year = $("#year").val();
 		var month = $("#month").val();
 		var day = $("#day").val();
-
-		param.userBirthday_tmp = year + '-' + month + '-' + day;
-
+		
+		param.userBirthday = new Date(year,month,day); 
 		param.mobilePhone = $("#mobilePhone").val();
 		param.email = $("#email").val();
 		param.userName = $("#userName").val();
@@ -128,7 +127,7 @@ function UserOper() {
 			if (day < 10) {
 				day = "0" + day;
 			}
-
+			
 			$("#year").val(year);
 			$("#month").val(month);
 			$("#day").val(day);

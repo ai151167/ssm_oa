@@ -6,6 +6,7 @@ import java.util.Map;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysMenuSub;
 import com.oa.demo.qsy.pojo.SysMenu;
+import com.oa.demo.qsy.pojo.SysRoleMenuRel;
 
 public interface IMenuService {
 
@@ -22,5 +23,9 @@ public interface IMenuService {
 	Boolean updataMenu(SysMenu menu);
 
 	boolean deleteMenu(Long menuId);
+
+	Map<String, Object> delRoleMenuRel(CommonParam param);
+
+	boolean addRoleMenuRel(SysRoleMenuRel param);
 
 }

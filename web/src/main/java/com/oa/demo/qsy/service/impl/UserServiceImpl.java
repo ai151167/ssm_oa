@@ -1,5 +1,6 @@
 package com.oa.demo.qsy.service.impl;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,13 +8,15 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.oa.demo.qsy.CommonUtils;
 import com.oa.demo.qsy.Constant;
+import com.oa.demo.qsy.common.pojo.org.CommonCount;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysUserSub;
+import com.oa.demo.qsy.pojo.SysRoleUserRel;
+import com.oa.demo.qsy.pojo.SysRoleUserRelExample;
 import com.oa.demo.qsy.pojo.SysUser;
 import com.oa.demo.qsy.pojo.SysUserExample;
-import com.oa.demo.qsy.pojo.SysUserExample.Criteria;
+import com.oa.demo.qsy.pojo.mapper.SysRoleUserRelMapper;
 import com.oa.demo.qsy.pojo.mapper.SysUserMapper;
 import com.oa.demo.qsy.service.IUserService;
 
@@ -23,6 +26,9 @@ public class UserServiceImpl implements IUserService {
 	@Autowired
 	private SysUserMapper sysUserMapper;
 
+	@Autowired
+	private SysRoleUserRelMapper sysRoleUserRelMapper;
+	
 	@Override
 	public Map<String, Object> userList(CommonParam param) {
 		Map<String, Object> result = new HashMap<>();
@@ -96,5 +102,62 @@ public class UserServiceImpl implements IUserService {
 		}
 		return result;
 		
+	}
+
+	@Override
+	public Map<String, Object> delRoleUserRel(CommonParam param) {
+		Map<String, Object> result = new HashMap<>();
+		result.put("isOk", false);
+		SysRoleUserRelExample example = new SysRoleUserRelExample();
+		example.createCriteria().andRoleIdEqualTo(param.getRoleId()).andUserIdEqualTo(param.getUserId());
+		int i = sysRoleUserRelMapper.deleteByExample(example);
+		if(i>0) {
+			result.put("isOk", true);
+		}
+		return result;
+	}
+
+	@Override
+	public List<SysUser> getUserByOrgId(Long orgId) {
+		SysUserExample example = new SysUserExample();
+		example.createCriteria().andOrgIdEqualTo(orgId).andStateEqualTo("01");
+		return sysUserMapper.selectByExample(example );
+	}
+
+	@Override
+	public boolean addRoleUserRel(SysRoleUserRel param) {
+		boolean isOK = false;
+		param.setCreatedDate(new Date());
+		int i = sysRoleUserRelMapper.insert(param);
+		if(i>0) {
+			isOK = true;
+		}
+		return isOK;
+	}
+
+	@Override
+	public Map<String, Object> getUserStatistics() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("isSuccess", false);
+		List<CommonCount> list = sysUserMapper.getUserStatistics();
+		if(list!=null && list.size()>0) {
+			result.put("list", list);
+			result.put("isSuccess", true);
+		}
+		
+		return result;
+	}
+
+	@Override
+	public Map<String, Object> getUserSexStatistics() {
+		Map<String, Object> result = new HashMap<>();
+		result.put("isSuccess", false);
+		List<Map<String, Object>> list = sysUserMapper.getUserSexStatistics();
+		if(list!=null && list.size()>0) {
+			result.put("list", list);
+			result.put("isSuccess", true);
+		}
+		
+		return result;
 	}
 }

@@ -1,6 +1,5 @@
 package com.oa.demo.qsy.service.impl;
 
-import java.net.InetSocketAddress;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +12,7 @@ import com.oa.demo.qsy.CommonUtils;
 import com.oa.demo.qsy.Constant;
 import com.oa.demo.qsy.MapAndObject;
 import com.oa.demo.qsy.pojo.SysRole;
+import com.oa.demo.qsy.pojo.SysRoleExample;
 import com.oa.demo.qsy.pojo.mapper.SysRoleMapper;
 import com.oa.demo.qsy.service.IRoleService;
 
@@ -76,6 +76,13 @@ public class RoleServiceImpl implements IRoleService {
 			isOk="SUCCESS";
 		}
 		return isOk;
+	}
+
+	@Override
+	public List<SysRole> getRoleList() {
+		SysRoleExample example = new SysRoleExample();
+		example.createCriteria().andStateEqualTo(Constant.ONE);
+		return sysRoleMapper.selectByExample(example);
 	}
 
 

@@ -13,10 +13,12 @@
 <link rel="stylesheet" href="${base}/js/static/plugin/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css">
 <script type="text/javascript" src="${base}/js/static/plugin/zTree/js/jquery.ztree.core.js"></script>
 <script type="text/javascript" src="${base}/js/static/page/authorization/authorizationMana.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/authorization/authorizationOrg.js"></script>
-<script type="text/javascript" src="${base}/js/static/page/menu/menuTree.js"></script>
-<script type="text/javascript" src="${base}/js/static/page/org/orgTree.js"></script>
-<script type="text/javascript" src="/SSMProject/static/application/admin/authorization/userTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/authorizationOrg.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/authorizationUser.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/authorizationMenu.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/menuTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/orgTree.js"></script>
+<script type="text/javascript" src="${base}/js/static/page/authorization/userTree.js"></script>
 <script type="text/javascript" src="${base}/js/static/plugin/paging/paging.js"></script>
 
 

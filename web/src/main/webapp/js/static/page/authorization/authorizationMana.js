@@ -1,51 +1,65 @@
-var pageSize =5;
-var orgOper;
-var count;
-var page;
-$(function() {
-	loadOrgPageInfo(1);
-	orgOper = new OrgOper();
-	$("#queryButton").bind("click", function() {
-		loadOrgPageInfo(1);
-	});
-	$("#resetButton").bind("click", function() {
-		$("#qry_orgName").val('');
-		$("#qry_state").val('');
-		$("#qry_orgParentId").val('');
-		$("#qry_orgParentName").val('');
-		loadOrgPageInfo(1);
-	});
+var pageSize = 3;
+var count=0;
+var page =1;
+$(document).ready(function() {
+	InitRoleList();
 });
 
-function loadOrgPageInfo(startPage) {
+function InitRoleList() {
 	var param = new Object();
-	param.startIndex = (startPage-1) * pageSize;
-	param.orgName = $("#qry_orgName").val();
-	param.state = $("#qry_state").val();
-	param.orgParentId = $("#qry_orgParentId").val();
-	param.pageSize = pageSize;
-	$.ajax({
-		url : "/org/queryOrgList",
-		async : true,
-		data : param,
-		type : "GET",
-		success : function(response) {
-			if (response != null) {
-				$("#pageListContainer").empty();
-				$("#pageListContainer").html(response);
-				loadOrgPageNumber(startPage);
-			}
-		}
-	});
-}
-	function loadOrgPageNumber(startPage) {
-		$("#pageNumberToolBar").empty();
-		$("#pageNumberToolBar").paging({
-		    pageNo:startPage,
-		    totalPage: page,
-		    totalSize: count,
-		    callback: function(num) {
-		    	loadOrgPageInfo(num);
-		    }
+	var roleSelect = $("#qry_roleId");
+
+	$.getJSON("/authorization/getRoleList", param, function(data) {
+		roleSelect.append("<option value=''>请选择:</option>");
+		$.each(data, function(key, items) {
+			roleSelect.append("<option value='" + items.roleId + "'>"
+					+ items.roleName + "</option>");
 		});
+	})
+
+}
+
+/**
+ * 检验在选择授权类型时，是否已经选择角色
+ */
+function AuthorizationValidate(){
+	var qry_role = $("#qry_roleId").val();
+	if(!qry_role){
+		alert("请先选择角色！");
+		return false;
+	}
+	return true;
+}
+
+/**
+ * 点击查询时，检验有没有选择角色或授权类型
+ */
+function QueryAuthorizationInfo(){
+	var qry_role = $("#qry_roleId").val();
+	if(!qry_role){
+		alert("请先选择角色！");
+		return false;
+	}
+	
+	var auth_type = $("#qry_authorizationObjType").val();
+	if(!auth_type){
+		alert("请选择授权类型!");
+		return false;
+	}
+	
+	if(auth_type==1){
+		//查询授权的组织信息
+		queryAuthOrg(1);
+	}
+	
+	if(auth_type==2){
+		//查询授权的个人信息
+		queryAuthUser(1);
+	}
+	
+	if(auth_type==3){
+		//查询授权的菜单信息
+		queryAuthMenu(1);
+	}
+	
 }

@@ -1,10 +1,13 @@
 package com.oa.demo.qsy.pojo.mapper;
 
+import com.oa.demo.qsy.common.pojo.org.CommonCount;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysUserSub;
 import com.oa.demo.qsy.pojo.SysUser;
 import com.oa.demo.qsy.pojo.SysUserExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface SysUserMapper {
@@ -101,4 +104,8 @@ public interface SysUserMapper {
 	Long countByCondition(CommonParam param);
 	
 	SysUserSub selectSysUserSubInfoById(Long userId);
+
+	List<CommonCount> getUserStatistics();
+
+	List<Map<String, Object>> getUserSexStatistics();
 }

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.oa.demo.qsy.CommonUtils;
-import com.oa.demo.qsy.Constant;
 import com.oa.demo.qsy.basecontroller.BaseController;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysUserSub;
@@ -34,12 +33,6 @@ public class UserController extends BaseController {
 	@RequestMapping("/userList")
 	public ModelAndView userList(CommonParam param){
 		ModelAndView model = new ModelAndView();
-		if(param.getPageSize()==null||"".equals(param.getPageSize())) {
-			param.setPageSize(Constant.DEFAULTPAGESIZE);
-		}
-		if(param.getStartIndex()==null||"".equals(param.getStartIndex())) {
-			param.setStartIndex(Constant.DEFAULTPAGESINO);
-		}
 		Map<String, Object> result =  userServiceImpl.userList(param);
 		model.setViewName("user/userList");
 		model.addObject("userList", result.get("list"));
@@ -72,5 +65,17 @@ public class UserController extends BaseController {
 	public String delete(HttpServletRequest request) {
 		Map<String, Object> param = this.getParam(request);
 		return userServiceImpl.delete(CommonUtils.stringToLong(param.get("userId").toString()));
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getUserStatistics")
+	public Map<String,Object> getUserStatistics(){
+		return userServiceImpl.getUserStatistics();
+	}
+	
+	@ResponseBody
+	@RequestMapping("/getUserSexStatistics")
+	public Map<String, Object> getUserSexStatistics(){
+		return userServiceImpl.getUserSexStatistics();
 	}
 }

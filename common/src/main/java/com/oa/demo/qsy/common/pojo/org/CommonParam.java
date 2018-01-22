@@ -46,6 +46,9 @@ public class CommonParam {
 	
 	private Short isPublish;
 	
+	private Long menuId;
+	
+	private String auth;
 
 	public Long getOrgId() {
 		return orgId;
@@ -221,5 +224,21 @@ public class CommonParam {
 
 	public void setIsPublish(Short isPublish) {
 		this.isPublish = isPublish;
+	}
+
+	public Long getMenuId() {
+		return menuId;
+	}
+
+	public void setMenuId(Long menuId) {
+		this.menuId = menuId;
+	}
+
+	public String getAuth() {
+		return auth;
+	}
+
+	public void setAuth(String auth) {
+		this.auth = auth;
 	}
 }

@@ -35,5 +35,5 @@
 
 <script type="text/javascript">
 	count = ${count};
-	page = ${page}
+	page=${page};
 </script>

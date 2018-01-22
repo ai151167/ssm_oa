@@ -17,5 +17,6 @@ F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\RoleContr
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\IMenuService.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\MenuServiceImpl.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\MenuController.java
+F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\UserTreeController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\controller\AreaController.java
 F:\demo\Repository\ssm_oa\web\src\main\java\com\oa\demo\qsy\service\impl\AreaServerImpl.java

@@ -25,41 +25,41 @@
 			var current = me.options.pageNo;
 			var total = me.options.totalPage;
 			var totalNum = me.options.totalSize;
-			content += "<button id=\"firstPage\">首页2</button><a>  <button>首页1</button></a>&nbsp&nbsp&nbsp&nbsp<a id='prePage'>上一页</a>&nbsp&nbsp&nbsp&nbsp;";
+			content += "<a id=\"firstPage\"><button>首页</button></a>&nbsp&nbsp<a id='prePage'><button>上一页</button></a>&nbsp&nbsp;";
 			//总页数大于6时候
 			if(total > 6) {
 				//当前页数小于5时显示省略号
 				if(current < 5) {
 					for(var i = 1; i < 6; i++) {
 						if(current == i) {
-							content += "<a style='color:blue'>" + i + "</a>&nbsp&nbsp&nbsp&nbsp";
+							content += "<a style='color:blue;border:2px solid #000080 ;'>" + i + "</a>&nbsp&nbsp";
 						} else {
-							content += "<a>" + i + "</a>&nbsp&nbsp&nbsp&nbsp";
+							content += "<a>" + i + "</a>&nbsp&nbsp";
 						}
 					}
-					content += ". . .&nbsp&nbsp&nbsp&nbsp";
+					content += ". . .&nbsp&nbsp";
 					content += "<a>"+total+"</a>";
 				} else {
 					 //判断页码在末尾的时候
 					if(current < total - 3) {
 						for(var i = current - 2; i < current + 3; i++) {
 							if(current == i) {
-								content += "<a style='color:blue'>" + i + "</a>&nbsp&nbsp&nbsp&nbsp";
+								content += "<a style='color:blue;border:2px solid #000080 ;'>" + i + "</a>&nbsp&nbsp";
 							} else {
-								content += "<a>" + i + "</a>&nbsp&nbsp&nbsp&nbsp";
+								content += "<a>" + i + "</a>&nbsp&nbsp";
 							}
 						}
-						content += ". . .&nbsp&nbsp&nbsp&nbsp";
-						content += "<a>"+total+"</a>&nbsp&nbsp&nbsp&nbsp";
+						content += ". . .&nbsp&nbsp";
+						content += "<a>"+total+"</a>&nbsp&nbsp";
 					//页码在中间部分时候	
 					} else {
 						content += "<a>1</a>&nbsp;&nbsp;";
 						content += ". . .";
 						for(var i = total - 4; i < total + 1; i++) {
 							if(current == i) {
-								content += "<a style='color:blue;'>" + i + "</a>&nbsp&nbsp  &nbsp&nbsp";
+								content += "<a style='color:blue;border:2px solid #000080 ;'>" + i + "</a>&nbsp&nbsp";
 							} else {
-								content += "<a>" + i + "</a>&nbsp&nbsp  &nbsp&nbsp";
+								content += "<a>" + i + "</a>&nbsp&nbsp";
 							}
 						}
 					}
@@ -67,22 +67,22 @@
 				//页面总数小于6的时候
 			} else {
 				if(total==0||total==1){
-					content += "<a>" + 1 + "</a>&nbsp&nbsp&nbsp&nbsp";
+					content += "<a>" + 1 + "</a>&nbsp&nbsp";
 					total=1;
 				}else{
 					for(var i = 0; i < total; i++) {
 						if(current == i+1) {
-							content += "<a style='color:blue'>" + (i+1) + "</a>&nbsp&nbsp&nbsp&nbsp";
+							content += "<a style='color:blue;border:2px solid #000080'>" + (i+1) + "</a>&nbsp&nbsp";
 						} else {
 							
-							content += "<a>" + (i+1) + "</a>&nbsp&nbsp&nbsp&nbsp";
+							content += "<a>" + (i+1) + "</a>&nbsp&nbsp";
 						}
 					}
 				}
 			}
-			content += "<a id='nextPage'>下一页</a>&nbsp&nbsp&nbsp&nbsp";
-			content += "<a id=\"lastPage\">尾页</a>&nbsp&nbsp&nbsp&nbsp";
-			content += "<span> 共<span>"+total+"</span>页 </span>&nbsp&nbsp&nbsp&nbsp";
+			content += "<a id='nextPage'><button>下一页</button></a>&nbsp&nbsp";
+			content += "<a id=\"lastPage\"><button>尾页</button></a>&nbsp&nbsp";
+			content += "<span> 共<span>"+total+"</span>页 </span>&nbsp&nbsp";
 			content += "<span> 共<span>"+totalNum+"</span>条记录 </span>";
 			me.element.html(content);
 		},
