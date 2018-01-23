@@ -231,7 +231,78 @@ function UserOper() {
 			}
 		});
 	}
+	
+	
+	this.sendEmail = function(email){
+		var htmlStr = userOper.emailHtml();
 
+		$.layer({
+			type : 1,
+			title : false,
+			area : [ 'auto', 'auto' ],
+			page : {
+				html : htmlStr
+			}
+		});
+		
+		$("#toEmail").val(email);
+		$("#fromEmail").val(fromEmail);
+	}
+
+	this.emailHtml = function() {
+		var htmlStr = '';
+		htmlStr += '<div style="width:600px;" >';
+		htmlStr += '<div style=" line-height:30px; text-indent:10px; margin-bottom:20px; background-color:#eee; position:relative;">发送邮件</div>';
+		htmlStr += '<div style="display:block; padding-bottom:20px;" align="center"  >';
+
+		htmlStr += '<table border="0" >';
+
+		htmlStr += '<tr>';
+		htmlStr += '<td>';
+		htmlStr += '<span>收件人:</span>';
+		htmlStr += '</td>';
+		htmlStr += '<td>';
+		htmlStr += '<input type="text"  id="toEmail" style="width:370px;">';
+		htmlStr += '</td>';
+		htmlStr += '</tr>';
+
+		htmlStr += '<tr>';
+		htmlStr += '<td>';
+		htmlStr += '<span>主题:</span>';
+		htmlStr += '</td>';
+		htmlStr += '<td>';
+		htmlStr += '<input type="text"  id="title" style="width:370px;">';
+		htmlStr += '</td>';
+		htmlStr += '</tr>';
+		
+		htmlStr += '<tr>';
+		htmlStr += '<td>';
+		htmlStr += '<span>正文:</span>';
+		htmlStr += '</td>';
+		htmlStr += '<td>';
+		htmlStr += '<textarea rows="3" cols="50"></textarea>';
+		htmlStr += '</td>';
+		htmlStr += '</tr>';
+
+		htmlStr += '<tr>';
+		htmlStr += '<td>';
+		htmlStr += '<span>发件人:</span>';
+		htmlStr += '</td>';
+		htmlStr += '<td>';
+		htmlStr += '<input type="text"  id="fromEmail" style="width:370px;">';
+		htmlStr += '</td>';
+		htmlStr += '</tr>';
+		
+		htmlStr += '<tr id="saveUserTr"><td colspan="2" align="center">';
+		htmlStr += '<input id="saveButton" name="" type="button"  onclick="userOper.send();" value="发送"  />';
+		htmlStr += '</td></tr>';
+		htmlStr += '</table>';
+		htmlStr += '</div>';
+		htmlStr += '</div>';
+
+		return htmlStr;
+
+	}
 	this.initHtml = function() {
 		var htmlStr = '';
 		htmlStr += '<div style="width:600px;" >';

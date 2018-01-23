@@ -8,7 +8,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.oa.demo.qsy.CommonUtils;
 import com.oa.demo.qsy.Constant;
+import com.oa.demo.qsy.MapAndObject;
 import com.oa.demo.qsy.common.pojo.org.CommonCount;
 import com.oa.demo.qsy.common.pojo.org.CommonParam;
 import com.oa.demo.qsy.common.pojo.org.SysUserSub;
@@ -159,5 +161,15 @@ public class UserServiceImpl implements IUserService {
 		}
 		
 		return result;
+	}
+
+	@Override
+	public void insertSheetData(List<Map<String, Object>> list) throws Exception {
+		sysUserMapper.insertSheetData(list);
+	}
+
+	@Override
+	public List<Map<String, Object>> queryColumnList() {
+		return sysUserMapper.queryColumnList();
 	}
 }

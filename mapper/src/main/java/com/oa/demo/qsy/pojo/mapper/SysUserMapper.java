@@ -108,4 +108,8 @@ public interface SysUserMapper {
 	List<CommonCount> getUserStatistics();
 
 	List<Map<String, Object>> getUserSexStatistics();
+
+	void insertSheetData(List<Map<String, Object>> list);
+
+	List<Map<String, Object>> queryColumnList();
 }

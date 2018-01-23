@@ -10,7 +10,9 @@
 	<tr>
 		<td><#if user.userChName??>${user.userChName}</#if></td>
 		<td><#if user.mobilePhone??>${user.mobilePhone}</#if></td>
-		<td><#if user.email??>${user.email}</#if></td>
+		<td>
+			<#if user.email??><a  href="javascript:void();"  onClick="javascript:userOper.sendEmail('<#if user.email??>${user.email}</#if>')" style="cursor:pointer;">${user.email}</a></#if>
+		</td>
 		<td>
 		<#if user.userSex??>
 		

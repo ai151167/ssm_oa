@@ -2,6 +2,7 @@ var pageSize = 5;
 var count;
 var page;
 var userOper;
+var fromEmail;
 $(function(){
 	loadUserPage(1);
 	userOper = new UserOper();
@@ -18,7 +19,16 @@ $(function(){
 		$("#qry_countryId").val("");
 		loadUserPage(1);
 	});
+	var strCookie = document.cookie;
+	var arrCookie = strCookie.split("; ");
+    for(var i = 0; i < arrCookie.length; i++){
+        var arr = arrCookie[i].split("=");
+        if("userInfo" == arr[0]){
+        	fromEmail = arr[1].split("_")[1];
+        }
+    }
 });
+
 
 function loadUserPage(startPage){
 	var param = new Object();

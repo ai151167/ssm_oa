@@ -671,4 +671,37 @@
 		from sys_user
 		group by PROVINCE_NAME;
 	</select>
+	
+	<select id="insertSheetData" parameterType="map">
+		INSERT INTO sys_user(
+			ORG_ID,
+			MOBILE_PHONE,
+			EMAIL,
+			USER_SEX,
+			USER_NAME,
+			USER_CH_NAME,
+			USER_PASSWORD,
+			CREATED_DATE
+		) values
+			<foreach collection="list" item="user" separator=",">
+			(
+			#{user.orgId},
+			#{user.mobilePhone},
+			#{user.email},
+			#{user.userSex},
+			#{user.userName},
+			#{user.userChName},
+			'123456',
+			now()
+			)
+			</foreach>
+		
+	</select>
+	<select id="queryColumnList" resultType="map">
+		select 
+		USER_CH_NAME as userChName,USER_SEX as userSex,MOBILE_PHONE as mobilePhone,
+		PROVINCE_NAME as provinceName,CITY_NAME as cityName,CONTRY_NAME as countyName,
+		USER_BIRTHDAY as userBirthday
+		from sys_user
+	</select>
 </mapper>

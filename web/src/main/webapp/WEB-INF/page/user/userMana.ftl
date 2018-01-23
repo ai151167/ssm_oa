@@ -16,6 +16,8 @@
 <script type="text/javascript"  src="${base}/js/static/page/user/userOper.js"></script>
 <script type="text/javascript"  src="${base}/js/static/page/user/userMana.js"></script>
 <script type="text/javascript"  src="${base}/js/static/page/user/userTree.js"></script>
+<script type="text/javascript"  src="${base}/js/static/page/user/exportExcel.js"></script>
+<script type="text/javascript"  src="${base}/js/static/page/user/importExcel.js"></script>
 <script type="text/javascript"  src="${base}/js/static/page/utils/getArea.js"></script>
 <script type="text/javascript"  src="${base}/js/static/page/org/orgTree.js"></script>
 <script type="text/javascript"  src="${base}/js/static/plugin/paging/paging.js"></script>
@@ -59,6 +61,8 @@
 						<tr  height="30px">
 					    <td width="100%" colspan="3" style="text-align:left;">
 					    <button onclick="userOper.addUser();" >新增</button>
+					    <button onclick="javascript:importUserExcel();" >导入</button>
+					    <button onclick="javascript:exportUserExcel();" >导出</button>
 					    </td>
 					</tr>
 				</table>

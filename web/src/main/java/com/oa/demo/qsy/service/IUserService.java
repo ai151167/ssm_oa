@@ -32,4 +32,8 @@ public interface IUserService {
 
 	Map<String, Object> getUserSexStatistics();
 
+	void insertSheetData(List<Map<String, Object>> list) throws Exception;
+
+	List<Map<String, Object>> queryColumnList();
+
 }

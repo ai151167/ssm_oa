@@ -1,5 +1,5 @@
-com\oa\demo\qsy\basecontroller\BaseController.class
 com\oa\demo\qsy\CommonUtils.class
+com\oa\demo\qsy\basecontroller\BaseController.class
 com\oa\demo\qsy\Constant.class
 com\oa\demo\qsy\common\pojo\org\SysOrgSub.class
 com\oa\demo\qsy\MapAndObject.class
