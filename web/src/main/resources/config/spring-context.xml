@@ -18,7 +18,8 @@
 	<!-- 引入数mybatis配置文件 -->
 	<import resource="./application-mybatis.xml" />
 
-
+	<!-- 引入数activiti配置文件 -->
+	<import resource="./spring-servlet.xml" />
 
 	<!-- 事务管理器 事物管理器类型必须跟数据源类型一致 -->
 	<bean id="transactionManager"

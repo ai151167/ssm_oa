@@ -35,7 +35,7 @@
 		<table tableName="product_category"></table>
 		<table tableName="product"></table>
 		<table tableName="product_desc"></table>-->
-		<table tableName="sys_role_org_rel"></table> 
+		<table tableName="sys_leavebill"></table> 
 		
 	</context>
 </generatorConfiguration>
