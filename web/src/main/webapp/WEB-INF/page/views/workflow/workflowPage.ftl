@@ -47,7 +47,7 @@
 				        <#if dep.deploymentTime??>${dep.deploymentTime?string("yyyy-MM-dd HH:mm:ss")}</#if> 
 				        </div></td>
 				        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21">
-				        	<a href="/SSMProject/workflow/delDeployment?deploymentId=<#if dep.id??>${dep.id}</#if>">删除</a>
+				        	<a href="/workflow/delDeployment?deploymentId=<#if dep.id??>${dep.id}</#if>">删除</a>
 				        </div></td>
 				    </tr> 
 				    </#list>
@@ -100,7 +100,7 @@
 				        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><#if pd.diagramResourceName??>${pd.diagramResourceName}</#if></div></td>
 				        <td height="20" bgcolor="#FFFFFF" class="STYLE6"><div align="center"><#if pd.deploymentId??>${pd.deploymentId}</#if></div></td>
 				        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21">
-				        	<a target="_blank" href="/SSMProject/workflow/proccessImage?deploymentId=<#if pd.deploymentId??>${pd.deploymentId}</#if>&imageName=<#if pd.diagramResourceName??>${pd.diagramResourceName}</#if>">查看流程图</a> 
+				        	<a target="_blank" href="/workflow/proccessImage?deploymentId=<#if pd.deploymentId??>${pd.deploymentId}</#if>&imageName=<#if pd.diagramResourceName??>${pd.diagramResourceName}</#if>">查看流程图</a> 
 					 	</div></td>
 				    </tr> 
 		      </#list>
@@ -111,7 +111,7 @@
 	<hr>
 	<br/>
 	<!-- 发布流程 -->
-	<form action="/SSMProject/workflow/newdeploy" enctype="multipart/form-data" method="POST">
+	<form action="/workflow/newdeploy" enctype="multipart/form-data" method="POST">
 		<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
 		  <tr>
 		    <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">

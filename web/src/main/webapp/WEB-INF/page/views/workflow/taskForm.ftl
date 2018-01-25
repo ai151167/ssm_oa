@@ -31,7 +31,7 @@
 		  </tr>
 		  <tr>
 		  	<td>
-		  		<form action="/SSMProject/workflow/submitTask" method="POST">
+		  		<form action="/workflow/submitTask" method="POST">
 			  		<div align="left" class="STYLE21">
 			  			<!-- 任务ID -->
 			  			<input type="hidden" name="taskId" value="<#if taskId??>${taskId}</#if>">

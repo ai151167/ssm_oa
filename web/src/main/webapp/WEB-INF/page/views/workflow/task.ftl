@@ -18,7 +18,7 @@
 		          <tr>
 		            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
 		              <tr>
-		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="/SSMProject/images/tb.gif" width="14" height="14" /></div></td>
+		                <td width="6%" height="19" valign="bottom"><div align="center"><img src="/images/tb.gif" width="14" height="14" /></div></td>
 		                <td width="94%" valign="bottom"><span class="STYLE1">个人任务管理列表</span></td>
 		              </tr>
 		            </table></td>
@@ -49,8 +49,8 @@
 				        <#if task.createTime??>${task.createTime?string("yyyy-MM-dd HH:mm:ss")}</#if>
 				        <td height="20" bgcolor="#FFFFFF" class="STYLE19"><div align="center"><#if task.assignee??>${task.assignee}</#if></div></td>
 				        <td height="20" bgcolor="#FFFFFF"><div align="center" class="STYLE21">
-				        	<a href="/SSMProject/workflow/viewTaskForm?taskId=<#if task.id??>${task.id}</#if>">办理任务</a>
-							<a target="_blank" href="/SSMProject/workflow/viewCurrentProcessImage?taskId=<#if task.id??>${task.id}</#if>">查看当前流程图</a>
+				        	<a href="/workflow/viewTaskForm?taskId=<#if task.id??>${task.id}</#if>">办理任务</a>
+							<a target="_blank" href="/workflow/viewCurrentProcessImage?taskId=<#if task.id??>${task.id}</#if>">查看当前流程图</a>
 				        </div></td>
 				    </tr> 		      
 		      	</#list>
